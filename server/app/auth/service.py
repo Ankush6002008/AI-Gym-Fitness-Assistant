@@ -1,7 +1,11 @@
 from app.database.connection import db
 from app.users.models import User
 from app.auth.security import hash_password, verify_password
-from app.auth.jwt_handler import create_access_token
+from app.auth.security import (
+    hash_password,
+    verify_password,
+    create_access_token,
+)
 
 users_collection = db["users"]
 

@@ -15,3 +15,11 @@ class UserRegisterSchema(BaseModel):
 class UserLoginSchema(BaseModel):
     email: EmailStr
     password: str
+
+class UserUpdateSchema(BaseModel):
+    full_name: str = Field(..., min_length=3, max_length=100)
+    age: int = Field(..., ge=13, le=100)
+    gender: str
+    height: float = Field(..., gt=0)
+    weight: float = Field(..., gt=0)
+    fitness_goal: str
