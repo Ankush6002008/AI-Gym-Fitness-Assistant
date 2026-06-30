@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 
+from app.auth.routes import router as auth_router
 from app.database.connection import test_connection
 
 app = FastAPI(
@@ -12,6 +13,9 @@ app = FastAPI(
 @app.on_event("startup")
 def startup_event():
     test_connection()
+
+
+app.include_router(auth_router)
 
 
 @app.get("/")
